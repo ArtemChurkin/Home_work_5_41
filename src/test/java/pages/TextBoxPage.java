@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,10 +13,10 @@ public class TextBoxPage {
     // Elements
     private SelenideElement userNameInput = $("#userName");  // "[id=userName]"
     private SelenideElement userEmailInput = $("#userEmail");
-    private SelenideElement currentAddressInput = $("[id=currentAddress]");
-    private SelenideElement permanentAddressInput = $("[id=currentAddress]");
+    private SelenideElement currentAddressInput = $("#currentAddress");
+    private SelenideElement permanentAddressInput = $("#permanentAddress");
     private SelenideElement submitButton = $("#submit");
-    private SelenideElement outputResults = $("#utput");
+    private SelenideElement outputResults = $("#output");
 
 
     // Actions
@@ -43,10 +44,31 @@ public class TextBoxPage {
         permanentAddressInput.setValue(value);
     }
 
-    public void checkField(String key, String value){
-        outputResults.$( byId(key)).shouldHave(text(value)); // $("[id=output]".$("[id=name]").shouldHave(text(userName)) c $("[id=" + key + "]');
+    public void checkField(String key, String value) {
+        outputResults.$(byId(key)).shouldHave(text(value));
+    }
+    public void checkUserEmailHasErrorClass() {
+        userEmailInput.shouldHave(Condition.cssClass("field-error"));
     }
 
+    // $("[id=output]".$("[id=name]").shouldHave(text(userName)) c $("[id=" + key + "]');
+        //public void checkField(String key, String value) {
+        //    $("[id=output] [id=" + key + "]").shouldHave(text(value));
 
+    //public void checkUserName(String value) {
+    //    $("#output").$(byId("name")).shouldHave(text(value));
+    //}
+    //
+    //public void checkEmail(String value) {
+    //    $("#output").$(byId("email")).shouldHave(text(value));
+    //}
+    //
+    //public void checkCurrentAddress(String value) {
+    //    $("#output").$(byId("currentAddress")).shouldHave(text(value));
+    //}
+    //
+    //public void checkPermanentAddress(String value) {
+    //    $("#output").$(byId("permanentAddress")).shouldHave(text(value));
+    //}
 
 }

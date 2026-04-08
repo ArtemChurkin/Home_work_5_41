@@ -15,28 +15,29 @@ public class TextBoxTests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
-    void succesfulFillFormTest(){
+    void succesfulFillFormTest() {
 
         textBoxPage.openPage();
 
         textBoxPage.typeUserName(userName);
         textBoxPage.typeUserEmail(userEmail);
         textBoxPage.typeCurrentAddress(currentAddress);
-        //$("[id=currentAddress]").setValue(currentAddress);
         textBoxPage.typePermanentAddress(permanentAddress);
+        //$("[id=currentAddress]").setValue(currentAddress);
         //$("[id=permanentAddress]").setValue(permanentAddress);
-
 
         textBoxPage.submitFormButton(); // клик на кнопку Submit
 
-
         textBoxPage.checkField("name", userName);
-//        $("[id=output] [id=name]").shouldHave(text(userName));
         textBoxPage.checkField("email", userEmail);
-//        $("[id=output] [id=email]").shouldHave(text(userEmail));
-        $("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
-        $("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
+        textBoxPage.checkField("currentAddress", currentAddress);
+        textBoxPage.checkField("permanentAddress", permanentAddress);
+        //$("[id=output] [id=name]").shouldHave(text(userName));
+        //$("[id=output] [id=email]").shouldHave(text(userEmail));
+        //$("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
+        //$("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
     }
+
     @Test
     void onlyRequiredFieldSuccesfulTest2() {
 
@@ -50,20 +51,26 @@ public class TextBoxTests extends TestBase {
         textBoxPage.checkField("name", userName);
         textBoxPage.checkField("email", userEmail);
     }
+
     @Test
-    void firstNegativeTest(){
+    void firstNegativeTest() {
 
         open("/text-box");
 
         textBoxPage.typeUserName(userName);
         textBoxPage.typeUserEmail(userErrorEmail);
-        $("[id=currentAddress]").setValue(currentAddress);
-        $("[id=permanentAddress]").setValue(permanentAddress);
+        textBoxPage.typeCurrentAddress(currentAddress);
+        textBoxPage.typePermanentAddress(permanentAddress);
+//        $("[id=currentAddress]").setValue(currentAddress);
+//        $("[id=permanentAddress]").setValue(permanentAddress);
 
-        $("[id=submit]").click();
-        $("#userEmail").shouldHave(Condition.cssClass("field-error"));
+        textBoxPage.submitFormButton();
+
+        textBoxPage.checkUserEmailHasErrorClass();
+        //$("#userEmail").shouldHave(Condition.cssClass("field-error"));
     }
 
+}
 //    @Test
 //    void succesfulFillFormTest(){
 //
@@ -72,4 +79,4 @@ public class TextBoxTests extends TestBase {
 //        typeUserName(userName);
 //        typeUserEmail(userEmail);}
 
-}
+
