@@ -21,6 +21,7 @@ public class TextBoxPage {
 
     // Actions
     public void openPage() {
+
         open("/text-box");
     }
 
