@@ -37,85 +37,139 @@ public class AutomationPracticeFormPage {
     private SelenideElement closeButton = $("#closeLargeModal");
 
     // Actions
-    public void openPage() {open("/automation-practice-form");
+    public AutomationPracticeFormPage openPage() {open("/automation-practice-form");
+
+        return this;
+
     }
-    public void typeFirstName (String value){
+
+    public AutomationPracticeFormPage typeFirstName (String value){
         firstNameInput.setValue(value);
+
+        return this;
     }
-    public void typeLastName(String value){
+    public AutomationPracticeFormPage typeLastName(String value){
         lastNameInput.setValue(value);
+
+        return this;
     }
-    public void typeUserEmail(String value){
+    public AutomationPracticeFormPage typeUserEmail(String value){
         userEmailInput.setValue(value);
+
+        return this;
     }
-    public void typeUserGender(String value){
+    public AutomationPracticeFormPage typeUserGender(String value){
         userGenderRadioButton.$(byText(value)).click();
+
+        return this;
     }
-    public void typeUserNumber (String value){
+    public AutomationPracticeFormPage typeUserNumber (String value){
         userNumberInput.setValue(value);
+
+        return this;
     }
-    public void setBirthDay(String day, String month, String year){
+    public AutomationPracticeFormPage setBirthDay(String day, String month, String year){
         dateOfBirthInput.click();
         calendarComponent.setBirthDay( day, month, year);
+
+        return this;
     }
-    public void typeSubject (String value){
+    public AutomationPracticeFormPage typeSubject (String value){
         userSubjectsInput.setValue(value).pressEnter();
+
+        return this;
     }
-    public void typeHobbie (String value){
+    public AutomationPracticeFormPage typeHobbie (String value){
         userHobbiesCheckBox.$(byText(value)).click();
+
+        return this;
     }
-    public void typePicture (String value){
+    public AutomationPracticeFormPage typePicture (String value){
         userPictureUpload.uploadFromClasspath(value);
+
+        return this;
     }
-    public void typeCurrentAdress (String value){
+    public AutomationPracticeFormPage typeCurrentAdress (String value){
         userCurrentAddressInput.setValue(value);
+
+        return this;
     }
-    public void stateSelectList() {
+    public AutomationPracticeFormPage stateSelectList() {
         stateSelectList.click();
+
+        return this;
     }
-    public void citySelectList() {
+    public AutomationPracticeFormPage citySelectList() {
         citySelectList.click();
+
+        return this;
     }
-    public void submitFormButton() {
+    public AutomationPracticeFormPage submitFormButton() {
         submitButton.click();
+
+        return this;
     }
-    public void closeFormButton() {
+    public AutomationPracticeFormPage closeFormButton() {
         closeButton.click();
+
+        return this;
     }
-    public void typeState(String value) {
+    public AutomationPracticeFormPage typeState(String value) {
         stateChoose.setValue(value).pressEnter();
+
+        return this;
     }
-    public void typeCity(String value) {
+    public AutomationPracticeFormPage typeCity(String value) {
         cityChoose.setValue(value).pressEnter();
+
+        return this;
     }
-    public void setCheckModalDialog (){
+    public AutomationPracticeFormPage setCheckModalDialog (){
         checkModalDialog.should(appear);
+
+        return this;
     }
-    public void setCheckTitle (String value){
+    public AutomationPracticeFormPage setCheckTitle (String value){
         checkTitle.shouldHave(text(value));
+
+        return this;
     }
-    public void setCheckTable (String value){
-        fieldTable.shouldHave(text(value));}
-    public void checkFirstNameErrorBorder() {
-        firstNameInput.shouldHave(cssValue(borderColor, red)); //
+    public AutomationPracticeFormPage setCheckTable (String value){
+        fieldTable.shouldHave(text(value));
+
+        return this;}
+    public AutomationPracticeFormPage checkFirstNameErrorBorder() {
+        firstNameInput.shouldHave(cssValue(borderColor, red));
+
+        return this; //
     }
-    public void checkEmailErrorBorder() {
+    public AutomationPracticeFormPage checkEmailErrorBorder() {
         userEmailInput.shouldHave(cssValue(borderColor, red));
+
+        return this;
     }
-        public void checkNumberErrorBorder() {
+        public AutomationPracticeFormPage checkNumberErrorBorder() {
             userNumberInput.shouldHave(cssValue(borderColor, red));
+
+            return this;
     }
-    public void checkFirstNameErrorIcon(){
+    public AutomationPracticeFormPage checkFirstNameErrorIcon(){
         firstNameInput.shouldHave(cssValue(backroundImage,
                 errorIcon));
+
+        return this;
     }
-    public void checkEmailErrorIcon(){
+    public AutomationPracticeFormPage checkEmailErrorIcon(){
         userEmailInput.shouldHave(cssValue(backroundImage,
                 errorIcon));
+
+        return this;
     }
-    public void checkNumberErrorIcon(){
+    public AutomationPracticeFormPage checkNumberErrorIcon(){
         userNumberInput.shouldHave(cssValue(backroundImage,
                 errorIcon));
+
+        return this;
     }
 
 

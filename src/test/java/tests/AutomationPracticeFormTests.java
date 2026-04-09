@@ -12,53 +12,39 @@ public class AutomationPracticeFormTests extends TestBase {
     @Test
     void succesfulFillTest(){
 
-        automationPracticeFormPage.openPage(); //open("/automation-practice-form");
-        automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
-        automationPracticeFormPage.typeLastName(userLastName); //$("#lastName").setValue(userLastName);
-        automationPracticeFormPage.typeUserEmail(userEmail); //$("#userEmail").setValue(userEmail);
-        automationPracticeFormPage.typeUserGender(userGender); //$("#genterWrapper").$(byText(userGender)).click();
-        automationPracticeFormPage.typeUserNumber(userPhoneNumber); //$("#userNumber").setValue(userPhoneNumber);
+        automationPracticeFormPage.openPage()//open("/automation-practice-form");
+        .typeFirstName(userFirstName) //$("#firstName").setValue(userFirstName);
+        .typeLastName(userLastName) //$("#lastName").setValue(userLastName);
+        .typeUserEmail(userEmail)//$("#userEmail").setValue(userEmail);
+        .typeUserGender(userGender) //$("#genterWrapper").$(byText(userGender)).click();
+        .typeUserNumber(userPhoneNumber)
+                .setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear)
 
-        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear);   // $("#dateOfBirthInput").click();
-//        $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
-//        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
-//        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
+        .typeSubject(subject) //$("#subjectsInput").setValue(subject).pressEnter();
+        .typeHobbie(hobbie) //$("#hobbiesWrapper").$(byText(hobbie)).click();
+        .typePicture(picturePath) //$("#uploadPicture").uploadFromClasspath(picturePath);
+        .typeCurrentAdress(currentAddress) //$("#currentAddress").setValue(currentAddress);
 
-//        $("#subjectsInput").setValue(subject).pressEnter();
-//        $("#hobbiesWrapper").$(byText(hobbie)).scrollTo().click();
-//        $("#uploadPicture").uploadFromClasspath(picturePath);
-//        $("#currentAddress").setValue(currentAddress);
-//        $("#state").click();
-//        $("#react-select-3-input").setValue(state).pressEnter();
-//        $("#city").click();
-//        $("#react-select-4-input").setValue(city).pressEnter();
-//        $("#submit").click();
+        .stateSelectList()  //$("#state").click();
+        .typeState(state)//$("#react-select-3-input").setValue(state).pressEnter();
+        .citySelectList()//$("#city").click();
+        .typeCity(city) //$("#react-select-4-input").setValue(city).pressEnter();
+        .submitFormButton() //$("#submit").click();
 
-        automationPracticeFormPage.typeSubject(subject); //$("#subjectsInput").setValue(subject).pressEnter();
-        automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
-        automationPracticeFormPage.typePicture(picturePath); //$("#uploadPicture").uploadFromClasspath(picturePath);
-        automationPracticeFormPage.typeCurrentAdress(currentAddress); //$("#currentAddress").setValue(currentAddress);
+        .setCheckModalDialog() //$(".modal-dialog").should(appear);
+        .setCheckTitle(titleText)//$("[id=example-modal-sizes-title-lg]").shouldHave(text("Thanks for submitting the form"));
+        .setCheckTable(userFirstName +" " + userLastName) //$(".table-responsive").shouldHave(text(userFirstName +" " + userLastName));
+        .setCheckTable(userEmail)//$(".table-responsive").shouldHave(text(userEmail));
+        .setCheckTable(userGender)//$(".table-responsive").shouldHave(text(userGender));
+        .setCheckTable(userPhoneNumber)//$(".table-responsive").shouldHave(text(userPhoneNumber));
+        .setCheckTable(userBirthDay +" " + userBirthdayMonth + "," + userBirthdayYear)//$(".table-responsive").shouldHave(text(userBirthDay +" " + userBirthdayMonth + "," + userBirthdayYear));
+        .setCheckTable(subject)//$(".table-responsive").shouldHave(text(subject));
+        .setCheckTable(hobbie)//$(".table-responsive").shouldHave(text(hobbie));
+        .setCheckTable(pictureName)//$(".table-responsive").shouldHave(text(pictureName));
+        .setCheckTable(currentAddress) //$(".table-responsive").shouldHave(text(currentAddress));
+        .setCheckTable(state +" " + city)  //$(".table-responsive").shouldHave(text(state +" " + city));
 
-        automationPracticeFormPage.stateSelectList();  //$("#state").click();
-        automationPracticeFormPage.typeState(state);//$("#react-select-3-input").setValue(state).pressEnter();
-        automationPracticeFormPage.citySelectList();//$("#city").click();
-        automationPracticeFormPage.typeCity(city); //$("#react-select-4-input").setValue(city).pressEnter();
-        automationPracticeFormPage.submitFormButton(); //$("#submit").click();
-
-        automationPracticeFormPage.setCheckModalDialog(); //$(".modal-dialog").should(appear);
-        automationPracticeFormPage.setCheckTitle(titleText); //$("[id=example-modal-sizes-title-lg]").shouldHave(text("Thanks for submitting the form"));
-        automationPracticeFormPage.setCheckTable(userFirstName +" " + userLastName); //$(".table-responsive").shouldHave(text(userFirstName +" " + userLastName));
-        automationPracticeFormPage.setCheckTable(userEmail);//$(".table-responsive").shouldHave(text(userEmail));
-        automationPracticeFormPage.setCheckTable(userGender);//$(".table-responsive").shouldHave(text(userGender));
-        automationPracticeFormPage.setCheckTable(userPhoneNumber);//$(".table-responsive").shouldHave(text(userPhoneNumber));
-        automationPracticeFormPage.setCheckTable(userBirthDay +" " + userBirthdayMonth + "," + userBirthdayYear);//$(".table-responsive").shouldHave(text(userBirthDay +" " + userBirthdayMonth + "," + userBirthdayYear));
-        automationPracticeFormPage.setCheckTable(subject);//$(".table-responsive").shouldHave(text(subject));
-        automationPracticeFormPage.setCheckTable(hobbie);//$(".table-responsive").shouldHave(text(hobbie));
-        automationPracticeFormPage.setCheckTable(pictureName);//$(".table-responsive").shouldHave(text(pictureName));
-        automationPracticeFormPage.setCheckTable(currentAddress); //$(".table-responsive").shouldHave(text(currentAddress));
-        automationPracticeFormPage.setCheckTable(state +" " + city);  //$(".table-responsive").shouldHave(text(state +" " + city));
-
-        automationPracticeFormPage.closeFormButton(); //$("#closeLargeModal").click();
+        .closeFormButton(); //$("#closeLargeModal").click();
     }
     @Test
     void onlyRequiredFieldSuccesfulTest() {
