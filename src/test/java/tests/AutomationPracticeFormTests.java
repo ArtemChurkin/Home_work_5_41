@@ -1,17 +1,8 @@
 package tests;
 
-import components.CalendarComponent;
 import org.junit.jupiter.api.Test;
 import pages.AutomationPracticeFormPage;
-
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.cssValue;
-import static com.codeborne.selenide.Selenide.$;
 import static testdata.TestData.*;
-
 
 
 public class AutomationPracticeFormTests extends TestBase {

@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static testdata.TestData.userName;
+
 
 public class TextBoxPage {
     // Elements
@@ -20,38 +20,54 @@ public class TextBoxPage {
 
 
     // Actions
-    public void openPage() {
-
+    public TextBoxPage openPage() {
         open("/text-box");
+
+        return this; // = return new TextBoxPage();
     }
 
-    public void submitFormButton() {
+    public TextBoxPage submitFormButton() {
         submitButton.click();
+
+        return this;
     }
 
-    public void typeUserName(String value) {
+    public TextBoxPage typeUserName(String value) {
         userNameInput.setValue(value);
+
+        return this;
     }
 
-    public void typeUserEmail(String value){
+    public TextBoxPage typeUserEmail(String value) {
         userEmailInput.setValue(value);
+
+        return this;
     }
 
-    public void typeCurrentAddress(String value){
+    public TextBoxPage typeCurrentAddress(String value) {
         currentAddressInput.setValue(value);
+
+        return this;
     }
 
-    public void typePermanentAddress(String value){
+    public TextBoxPage typePermanentAddress(String value) {
         permanentAddressInput.setValue(value);
+
+        return this;
     }
 
-    public void checkField(String key, String value) {
+    public TextBoxPage checkField(String key, String value) {
         outputResults.$(byId(key)).shouldHave(text(value));
-    }
-    public void checkUserEmailHasErrorClass() {
-        userEmailInput.shouldHave(Condition.cssClass("field-error"));
+
+        return this;
     }
 
+    public TextBoxPage checkUserEmailHasErrorClass() {
+        userEmailInput.shouldHave(Condition.cssClass("field-error"));
+
+        return this;
+    }
+}
     // $("[id=output]".$("[id=name]").shouldHave(text(userName)) c $("[id=" + key + "]');
         //public void checkField(String key, String value) {
         //    $("[id=output] [id=" + key + "]").shouldHave(text(value));
@@ -72,4 +88,3 @@ public class TextBoxPage {
     //    $("#output").$(byId("permanentAddress")).shouldHave(text(value));
     //}
 
-}

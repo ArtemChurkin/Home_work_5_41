@@ -15,23 +15,18 @@ public class TextBoxTests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
-    void succesfulFillFormTest() {
+    void succesfulFillFormTest_dsl() {    // _dsl даёт возможность вызывать метод за методом
 
-        textBoxPage.openPage();
-
-        textBoxPage.typeUserName(userName);
-        textBoxPage.typeUserEmail(userEmail);
-        textBoxPage.typeCurrentAddress(currentAddress);
-        textBoxPage.typePermanentAddress(permanentAddress);
-        //$("[id=currentAddress]").setValue(currentAddress);
-        //$("[id=permanentAddress]").setValue(permanentAddress);
-
-        textBoxPage.submitFormButton(); // клик на кнопку Submit
-
-        textBoxPage.checkField("name", userName);
-        textBoxPage.checkField("email", userEmail);
-        textBoxPage.checkField("currentAddress", currentAddress);
-        textBoxPage.checkField("permanentAddress", permanentAddress);
+        textBoxPage.openPage()
+        .typeUserName(userName)
+        .typeUserEmail(userEmail)
+        .typeCurrentAddress(currentAddress) //$("[id=currentAddress]").setValue(currentAddress);
+        .typePermanentAddress(permanentAddress) //$("[id=permanentAddress]").setValue(permanentAddress);
+                .submitFormButton() // клик на кнопку Submit
+                .checkField("name", userName)
+                .checkField("email", userEmail)
+        .checkField("currentAddress", currentAddress)
+        .checkField("permanentAddress", permanentAddress);
         //$("[id=output] [id=name]").shouldHave(text(userName));
         //$("[id=output] [id=email]").shouldHave(text(userEmail));
         //$("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
@@ -39,35 +34,29 @@ public class TextBoxTests extends TestBase {
     }
 
     @Test
-    void onlyRequiredFieldSuccesfulTest2() {
+    void onlyRequiredFieldSuccesfulTest2_dsl() {
 
-        textBoxPage.openPage();
+        textBoxPage.openPage()
 
-        textBoxPage.typeUserName(userName);
-        textBoxPage.typeUserEmail(userEmail);
-
-        textBoxPage.submitFormButton();
-
-        textBoxPage.checkField("name", userName);
-        textBoxPage.checkField("email", userEmail);
+        .typeUserName(userName)
+        .typeUserEmail(userEmail)
+                .submitFormButton()
+                .checkField("name", userName)
+                .checkField("email", userEmail);
     }
 
     @Test
-    void firstNegativeTest() {
+    void firstNegativeTest_dsl() {
 
-        open("/text-box");
+        textBoxPage.openPage()
 
-        textBoxPage.typeUserName(userName);
-        textBoxPage.typeUserEmail(userErrorEmail);
-        textBoxPage.typeCurrentAddress(currentAddress);
-        textBoxPage.typePermanentAddress(permanentAddress);
-//        $("[id=currentAddress]").setValue(currentAddress);
-//        $("[id=permanentAddress]").setValue(permanentAddress);
+        .typeUserName(userName)
+        .typeUserEmail(userErrorEmail)
+        .typeCurrentAddress(currentAddress)
+        .typePermanentAddress(permanentAddress) //$("[id=permanentAddress]").setValue(permanentAddress);
+                .submitFormButton()
+                .checkUserEmailHasErrorClass(); //$("#userEmail").shouldHave(Condition.cssClass("field-error"));
 
-        textBoxPage.submitFormButton();
-
-        textBoxPage.checkUserEmailHasErrorClass();
-        //$("#userEmail").shouldHave(Condition.cssClass("field-error"));
     }
 
 }
