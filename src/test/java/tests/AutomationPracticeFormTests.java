@@ -21,7 +21,6 @@ public class AutomationPracticeFormTests extends TestBase {
     @Test
     void succesfulFillTest(){
 
-
         automationPracticeFormPage.openPage(); //open("/automation-practice-form");
         automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
         automationPracticeFormPage.typeLastName(userLastName); //$("#lastName").setValue(userLastName);
@@ -29,11 +28,20 @@ public class AutomationPracticeFormTests extends TestBase {
         automationPracticeFormPage.typeUserGender(userGender); //$("#genterWrapper").$(byText(userGender)).click();
         automationPracticeFormPage.typeUserNumber(userPhoneNumber); //$("#userNumber").setValue(userPhoneNumber);
 
-        automationPracticeFormPage.setBirthDay();   // $("#dateOfBirthInput").click();
+        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear);   // $("#dateOfBirthInput").click();
 //        $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
 //        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
 //        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
 
+//        $("#subjectsInput").setValue(subject).pressEnter();
+//        $("#hobbiesWrapper").$(byText(hobbie)).scrollTo().click();
+//        $("#uploadPicture").uploadFromClasspath(picturePath);
+//        $("#currentAddress").setValue(currentAddress);
+//        $("#state").click();
+//        $("#react-select-3-input").setValue(state).pressEnter();
+//        $("#city").click();
+//        $("#react-select-4-input").setValue(city).pressEnter();
+//        $("#submit").click();
 
         automationPracticeFormPage.typeSubject(subject); //$("#subjectsInput").setValue(subject).pressEnter();
         automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
@@ -88,19 +96,21 @@ public class AutomationPracticeFormTests extends TestBase {
     }
     @Test
     void firstNegativeTest(){
-        automationPracticeFormPage.openPage();  //open("/automation-practice-form");
+        automationPracticeFormPage.openPage();//open("/automation-practice-form");
+
         automationPracticeFormPage.submitFormButton(); //$("#submit").click();
         //$("#firstName").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));// проверяю что цвет бордера поменялся на красный
-        automationPracticeFormPage.checkFirstNameErrorBorder(borderColor, red);
+        automationPracticeFormPage.checkFirstNameErrorBorder();
 //        $("#firstName").shouldHave(cssValue("background-image",
 //                "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"
 //        ));// проверяю что появилась иконка с восклицательным знаком
-        automationPracticeFormPage.checkErrorIcon();
+        automationPracticeFormPage.checkFirstNameErrorIcon();
 
 
     }
     @Test
     void secondNegativeTest(){
+
         automationPracticeFormPage.openPage();     //open("/automation-practice-form");
         automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
         automationPracticeFormPage.typeLastName(userLastName);  //$("#lastName").setValue(userLastName);
@@ -108,54 +118,50 @@ public class AutomationPracticeFormTests extends TestBase {
         automationPracticeFormPage.typeUserGender(userGender);  //  $("#genterWrapper").$(byText(userGender)).click();
         automationPracticeFormPage.typeUserNumber(userPhoneNumber);  //$("#userNumber").setValue(userPhoneNumber);
 
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
-        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
-        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
+        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear); //$("#dateOfBirthInput").click();
+//      $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
+//        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
+//        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
 
-        $("#subjectsInput").setValue(subject).pressEnter();
-        $("#hobbiesWrapper").$(byText(hobbie)).click();
-        $("#uploadPicture").uploadFromClasspath(picturePath);
-        $("#currentAddress").setValue(currentAddress);
-        $("#state").click();
-        $("#react-select-3-input").setValue(state).pressEnter();
-        $("#city").click();
-        $("#react-select-4-input").setValue(city).pressEnter();
-        $("#submit").click();
+        automationPracticeFormPage.typeSubject(subject);//$("#subjectsInput").setValue(subject).pressEnter();
+        automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
+        automationPracticeFormPage.typePicture(picturePath); //$("#uploadPicture").uploadFromClasspath(picturePath);
+        automationPracticeFormPage.typeCurrentAdress(currentAddress); //$("#currentAddress").setValue(currentAddress);
+        automationPracticeFormPage.stateSelectList();  //$("#state").click();
+        automationPracticeFormPage.typeState(state);//$("#react-select-3-input").setValue(state).pressEnter();
+        automationPracticeFormPage.citySelectList();//$("#city").click();
+        automationPracticeFormPage.typeCity(city); //$("#react-select-4-input").setValue(city).pressEnter();
+        automationPracticeFormPage.submitFormButton();
 
-        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
-        $("#userEmail").shouldHave(cssValue("background-image",
-                "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"
-        ));
+        automationPracticeFormPage.checkEmailErrorBorder();//$("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
+        automationPracticeFormPage.checkEmailErrorIcon();
+        //$("#userEmail").shouldHave(cssValue("background-image",
+                //"url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"));
     }
     @Test
     void thirdNegativeTest() {
-        open("/automation-practice-form");
-        $("#firstName").setValue(userFirstName);
-        $("#lastName").setValue(userLastName);
-        $("#userEmail").setValue(userEmail);
-        $("#genterWrapper").$(byText(userGender)).click();
-        $("#userNumber").setValue(userErrorPhoneNumber);  // Невалидный номер
-        $("#dateOfBirthInput").click();
+        automationPracticeFormPage.openPage(); //open("/automation-practice-form");
+        automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
+        automationPracticeFormPage.typeLastName(userLastName); //$("#lastName").setValue(userLastName);
+        automationPracticeFormPage.typeUserEmail(userEmail); //$("#userEmail").setValue(userEmail);
+        automationPracticeFormPage.typeUserGender(userGender); //$("#genterWrapper").$(byText(userGender)).click();
+        automationPracticeFormPage.typeUserNumber(userErrorPhoneNumber);
 
-        $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
-        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
-        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
+        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear);
 
-        $("#subjectsInput").setValue(subject).pressEnter();
-        $("#hobbiesWrapper").$(byText(hobbie)).click();
-        $("#uploadPicture").uploadFromClasspath(picturePath);
-        $("#currentAddress").setValue(currentAddress);
-        $("#state").click();
-        $("#react-select-3-input").setValue(state).pressEnter();
-        $("#city").click();
-        $("#react-select-4-input").setValue(city).pressEnter();
-        $("#submit").click();
+        automationPracticeFormPage.typeSubject(subject); //$("#subjectsInput").setValue(subject).pressEnter();
+        automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
+        automationPracticeFormPage.typePicture(picturePath); //$("#uploadPicture").uploadFromClasspath(picturePath);
+        automationPracticeFormPage.typeCurrentAdress(currentAddress); //$("#currentAddress").setValue(currentAddress);
 
-        $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
-        $("#userNumber").shouldHave(cssValue("background-image",
-                "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"
-        ));
+        automationPracticeFormPage.stateSelectList();  //$("#state").click();
+        automationPracticeFormPage.typeState(state);//$("#react-select-3-input").setValue(state).pressEnter();
+        automationPracticeFormPage.citySelectList();//$("#city").click();
+        automationPracticeFormPage.typeCity(city); //$("#react-select-4-input").setValue(city).pressEnter();
+        automationPracticeFormPage.submitFormButton();
+
+        automationPracticeFormPage.checkNumberErrorBorder();//$("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
+        automationPracticeFormPage.checkNumberErrorIcon();
     }
 
 }

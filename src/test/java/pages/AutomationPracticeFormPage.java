@@ -19,6 +19,7 @@ public class AutomationPracticeFormPage {
     private SelenideElement userEmailInput = $("#userEmail");
     private SelenideElement userGenderRadioButton = $("#genterWrapper");
     private SelenideElement userNumberInput = $("#userNumber");
+    private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
 
     private SelenideElement userSubjectsInput = $("#subjectsInput");
     private SelenideElement userHobbiesCheckBox = $("#hobbiesWrapper");
@@ -34,9 +35,6 @@ public class AutomationPracticeFormPage {
     private SelenideElement fieldTable = $(".table-responsive");
 
     private SelenideElement closeButton = $("#closeLargeModal");
-
-
-
 
     // Actions
     public void openPage() {open("/automation-practice-form");
@@ -57,6 +55,7 @@ public class AutomationPracticeFormPage {
         userNumberInput.setValue(value);
     }
     public void setBirthDay(String day, String month, String year){
+        dateOfBirthInput.click();
         calendarComponent.setBirthDay( day, month, year);
     }
     public void typeSubject (String value){
@@ -96,14 +95,27 @@ public class AutomationPracticeFormPage {
         checkTitle.shouldHave(text(value));
     }
     public void setCheckTable (String value){
-        fieldTable.shouldHave(text(value));
-    }
-    public void checkFirstNameErrorBorder (String propertyName, String expectedValue){
+        fieldTable.shouldHave(text(value));}
+    public void checkFirstNameErrorBorder() {
         firstNameInput.shouldHave(cssValue(borderColor, red)); //
     }
-    public void checkErrorIcon (){
+    public void checkEmailErrorBorder() {
+        userEmailInput.shouldHave(cssValue(borderColor, red));
+    }
+        public void checkNumberErrorBorder() {
+            userNumberInput.shouldHave(cssValue(borderColor, red));
+    }
+    public void checkFirstNameErrorIcon(){
         firstNameInput.shouldHave(cssValue(backroundImage,
-                errorIcon)); //
+                errorIcon));
+    }
+    public void checkEmailErrorIcon(){
+        userEmailInput.shouldHave(cssValue(backroundImage,
+                errorIcon));
+    }
+    public void checkNumberErrorIcon(){
+        userNumberInput.shouldHave(cssValue(backroundImage,
+                errorIcon));
     }
 
 
