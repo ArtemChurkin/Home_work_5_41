@@ -9,22 +9,17 @@ public class TextBoxTests extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
-    void succesfulFillFormTest_dsl() {    // _dsl даёт возможность вызывать метод за методом
-
+    void succesfulFillFormTest_dsl() {
         textBoxPage.openPage()
-        .typeUserName(userName)
-        .typeUserEmail(userEmail)
-        .typeCurrentAddress(currentAddress) //$("[id=currentAddress]").setValue(currentAddress);
-        .typePermanentAddress(permanentAddress) //$("[id=permanentAddress]").setValue(permanentAddress);
-                .submitFormButton() // клик на кнопку Submit
+                .typeUserName(userName)
+                .typeUserEmail(userEmail)
+                .typeCurrentAddress(currentAddress)
+                .typePermanentAddress(permanentAddress)
+                .submitFormButton()
                 .checkField("name", userName)
                 .checkField("email", userEmail)
-        .checkField("currentAddress", currentAddress)
-        .checkField("permanentAddress", permanentAddress);
-        //$("[id=output] [id=name]").shouldHave(text(userName));
-        //$("[id=output] [id=email]").shouldHave(text(userEmail));
-        //$("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
-        //$("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
+                .checkField("currentAddress", currentAddress)
+                .checkField("permanentAddress", permanentAddress);
     }
 
     @Test
@@ -47,19 +42,11 @@ public class TextBoxTests extends TestBase {
         .typeUserName(userName)
         .typeUserEmail(userErrorEmail)
         .typeCurrentAddress(currentAddress)
-        .typePermanentAddress(permanentAddress) //$("[id=permanentAddress]").setValue(permanentAddress);
+        .typePermanentAddress(permanentAddress)
                 .submitFormButton()
-                .checkUserEmailHasErrorClass(); //$("#userEmail").shouldHave(Condition.cssClass("field-error"));
+                .checkUserEmailHasErrorClass();
 
     }
 
 }
-//    @Test
-//    void succesfulFillFormTest(){
-//
-//        open("/text-box");
-//
-//        typeUserName(userName);
-//        typeUserEmail(userEmail);}
-
 
