@@ -49,96 +49,81 @@ public class AutomationPracticeFormTests extends TestBase {
     @Test
     void onlyRequiredFieldSuccesfulTest() {
 
-        automationPracticeFormPage.openPage();
-        //$("#firstName").setValue(userFirstName);
-        automationPracticeFormPage.typeFirstName(userFirstName);
-        //$("#lastName").setValue(userLastName);
-        automationPracticeFormPage.typeLastName(userLastName);
-        //$("#userEmail").setValue(userEmail);
-        automationPracticeFormPage.typeUserEmail(userEmail);
-        //$("#genterWrapper").$(byText(userGender)).click();
-        automationPracticeFormPage.typeUserGender(userGender);
-        //$("#userNumber").setValue(userPhoneNumber);
-        automationPracticeFormPage.typeUserNumber(userPhoneNumber);
-        automationPracticeFormPage.submitFormButton();
-        automationPracticeFormPage.closeFormButton();
-//        open("/automation-practice-form");
-//        $("#firstName").setValue(userFirstName);
-//        $("#lastName").setValue(userLastName);
-//        $("#userEmail").setValue(userEmail);
-//        $("#genterWrapper").$(byText(userGender)).click();
-//        $("#userNumber").setValue(userPhoneNumber);
-//        $("#submit").click();
-//        $("#closeLargeModal").click();
+        automationPracticeFormPage.openPage()
+
+        .typeFirstName(userFirstName)
+        .typeLastName(userLastName)
+        .typeUserEmail(userEmail)
+        .typeUserGender(userGender)
+        .typeUserNumber(userPhoneNumber)
+        .submitFormButton()
+        .closeFormButton();
+
     }
     @Test
     void firstNegativeTest(){
-        automationPracticeFormPage.openPage();//open("/automation-practice-form");
-
-        automationPracticeFormPage.submitFormButton(); //$("#submit").click();
+        automationPracticeFormPage.openPage()
+                .submitFormButton() //$("#submit").click();
         //$("#firstName").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));// проверяю что цвет бордера поменялся на красный
-        automationPracticeFormPage.checkFirstNameErrorBorder();
+        .checkFirstNameErrorBorder()
 //        $("#firstName").shouldHave(cssValue("background-image",
 //                "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"
 //        ));// проверяю что появилась иконка с восклицательным знаком
-        automationPracticeFormPage.checkFirstNameErrorIcon();
+        .checkFirstNameErrorIcon();
 
 
     }
     @Test
     void secondNegativeTest(){
 
-        automationPracticeFormPage.openPage();     //open("/automation-practice-form");
-        automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
-        automationPracticeFormPage.typeLastName(userLastName);  //$("#lastName").setValue(userLastName);
-        automationPracticeFormPage.typeUserEmail(userErrorEmail); //  $("#userEmail").setValue(userErrorEmail); // Невалидный адрес почты
-        automationPracticeFormPage.typeUserGender(userGender);  //  $("#genterWrapper").$(byText(userGender)).click();
-        automationPracticeFormPage.typeUserNumber(userPhoneNumber);  //$("#userNumber").setValue(userPhoneNumber);
+        automationPracticeFormPage.openPage()    //open("/automation-practice-form");
+        .typeFirstName(userFirstName) //$("#firstName").setValue(userFirstName);
+        .typeLastName(userLastName)  //$("#lastName").setValue(userLastName);
+        .typeUserEmail(userErrorEmail) //  $("#userEmail").setValue(userErrorEmail); // Невалидный адрес почты
+        .typeUserGender(userGender)  //  $("#genterWrapper").$(byText(userGender)).click();
+        .typeUserNumber(userPhoneNumber)  //$("#userNumber").setValue(userPhoneNumber);
 
-        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear); //$("#dateOfBirthInput").click();
-//      $(".react-datepicker__month-select").selectOption(userBirthdayMonth);
-//        $(".react-datepicker__year-select").selectOption(userBirthdayYear);
-//        $(".react-datepicker__day.react-datepicker__day--0" + userBirthDay + ":not(.react-datepicker__day--outside-month)").click();
+        .setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear)
 
-        automationPracticeFormPage.typeSubject(subject);//$("#subjectsInput").setValue(subject).pressEnter();
-        automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
-        automationPracticeFormPage.typePicture(picturePath); //$("#uploadPicture").uploadFromClasspath(picturePath);
-        automationPracticeFormPage.typeCurrentAdress(currentAddress); //$("#currentAddress").setValue(currentAddress);
-        automationPracticeFormPage.stateSelectList();  //$("#state").click();
-        automationPracticeFormPage.typeState(state);//$("#react-select-3-input").setValue(state).pressEnter();
-        automationPracticeFormPage.citySelectList();//$("#city").click();
-        automationPracticeFormPage.typeCity(city); //$("#react-select-4-input").setValue(city).pressEnter();
-        automationPracticeFormPage.submitFormButton();
+        .typeSubject(subject)
+        .typeHobbie(hobbie)
+        .typePicture(picturePath)
+        .typeCurrentAdress(currentAddress)
+        .stateSelectList()
+        .typeState(state)
+        .citySelectList()
+        .typeCity(city)
+        .submitFormButton()
 
-        automationPracticeFormPage.checkEmailErrorBorder();//$("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
-        automationPracticeFormPage.checkEmailErrorIcon();
+        .checkEmailErrorBorder()//$("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
+        .checkEmailErrorIcon();
         //$("#userEmail").shouldHave(cssValue("background-image",
                 //"url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\")"));
     }
     @Test
     void thirdNegativeTest() {
-        automationPracticeFormPage.openPage(); //open("/automation-practice-form");
-        automationPracticeFormPage.typeFirstName(userFirstName); //$("#firstName").setValue(userFirstName);
-        automationPracticeFormPage.typeLastName(userLastName); //$("#lastName").setValue(userLastName);
-        automationPracticeFormPage.typeUserEmail(userEmail); //$("#userEmail").setValue(userEmail);
-        automationPracticeFormPage.typeUserGender(userGender); //$("#genterWrapper").$(byText(userGender)).click();
-        automationPracticeFormPage.typeUserNumber(userErrorPhoneNumber);
+        automationPracticeFormPage.openPage() //open("/automation-practice-form");
+        .typeFirstName(userFirstName) //$("#firstName").setValue(userFirstName);
+        .typeLastName(userLastName) //$("#lastName").setValue(userLastName);
+        .typeUserEmail(userEmail) //$("#userEmail").setValue(userEmail);
+        .typeUserGender(userGender) //$("#genterWrapper").$(byText(userGender)).click();
+        .typeUserNumber(userErrorPhoneNumber)
 
-        automationPracticeFormPage.setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear);
+        .setBirthDay(userBirthDay, userBirthdayMonth, userBirthdayYear)
 
-        automationPracticeFormPage.typeSubject(subject); //$("#subjectsInput").setValue(subject).pressEnter();
-        automationPracticeFormPage.typeHobbie(hobbie); //$("#hobbiesWrapper").$(byText(hobbie)).click();
-        automationPracticeFormPage.typePicture(picturePath); //$("#uploadPicture").uploadFromClasspath(picturePath);
-        automationPracticeFormPage.typeCurrentAdress(currentAddress); //$("#currentAddress").setValue(currentAddress);
+        .typeSubject(subject) //$("#subjectsInput").setValue(subject).pressEnter();
+        .typeHobbie(hobbie) //$("#hobbiesWrapper").$(byText(hobbie)).click();
+        .typePicture(picturePath) //$("#uploadPicture").uploadFromClasspath(picturePath);
+        .typeCurrentAdress(currentAddress) //$("#currentAddress").setValue(currentAddress);
 
-        automationPracticeFormPage.stateSelectList();  //$("#state").click();
-        automationPracticeFormPage.typeState(state);//$("#react-select-3-input").setValue(state).pressEnter();
-        automationPracticeFormPage.citySelectList();//$("#city").click();
-        automationPracticeFormPage.typeCity(city); //$("#react-select-4-input").setValue(city).pressEnter();
-        automationPracticeFormPage.submitFormButton();
+        .stateSelectList()  //$("#state").click();
+        .typeState(state)//$("#react-select-3-input").setValue(state).pressEnter();
+        .citySelectList()//$("#city").click();
+        .typeCity(city) //$("#react-select-4-input").setValue(city).pressEnter();
+        .submitFormButton()
 
-        automationPracticeFormPage.checkNumberErrorBorder();//$("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
-        automationPracticeFormPage.checkNumberErrorIcon();
+        .checkNumberErrorBorder()//$("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // проверяю что цвет бордера поменялся на красный
+        .checkNumberErrorIcon();
     }
 
 }
