@@ -13,14 +13,10 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.timeout = 10000;
-        executeJavaScript("""
-                document.getElementById('fixedban')?.remove();
-                document.querySelector('footer')?.remove();
-                """);
     }
 
-    @AfterEach
-    void tearDown() {
-        closeWebDriver(); //закрытие браузера после теста
+        @AfterEach
+        void tearDown () {
+            closeWebDriver(); //закрытие браузера после теста
+        }
     }
-}

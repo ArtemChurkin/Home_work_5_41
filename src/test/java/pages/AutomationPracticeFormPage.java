@@ -2,17 +2,18 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.CalendarComponent;
+import components.ResultTableComponent;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static testdata.TestData.*;
 
 
 public class AutomationPracticeFormPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
     // Elements
     private SelenideElement firstNameInput = $("#firstName");  // "[id=firstName]"
     private SelenideElement lastNameInput = $("#lastName");
@@ -38,9 +39,10 @@ public class AutomationPracticeFormPage {
     // Actions
     public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
+        executeJavaScript("document.querySelector('#fixedban')?.remove()");
+        executeJavaScript("$('footer').remove()");
 
         return this;
-
     }
 
     public AutomationPracticeFormPage typeFirstName(String value) {
@@ -140,22 +142,8 @@ public class AutomationPracticeFormPage {
         return this;
     }
 
-    public AutomationPracticeFormPage setCheckModalDialog() {
-        checkModalDialog.should(appear);
-
-        return this;
-    }
-
-    public AutomationPracticeFormPage setCheckTitle(String value) {
-        checkTitle.shouldHave(text(value));
-
-        return this;
-    }
-
-    public AutomationPracticeFormPage setCheckTable(String value) {
-        fieldTable.shouldHave(text(value));
-
-        return this;
+    public ResultTableComponent resultTable() {
+        return resultTableComponent;
     }
 
     public AutomationPracticeFormPage checkFirstNameErrorBorder() {

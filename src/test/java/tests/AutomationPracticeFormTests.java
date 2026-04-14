@@ -32,18 +32,7 @@ public class AutomationPracticeFormTests extends TestBase {
                 .typeCity(city)
                 .submitFormButton()
 
-                .setCheckModalDialog()
-                .setCheckTitle(titleText)
-                .setCheckTable(userFirstName + " " + userLastName)
-                .setCheckTable(userEmail)
-                .setCheckTable(userGender)
-                .setCheckTable(userPhoneNumber)
-                .setCheckTable(userBirthDay + " " + userBirthdayMonth + "," + userBirthdayYear)
-                .setCheckTable(subject)
-                .setCheckTable(hobbie)
-                .setCheckTable(pictureName)
-                .setCheckTable(currentAddress)
-                .setCheckTable(state + " " + city)
+                .resultTable()
 
                 .closeFormButton();
     }
