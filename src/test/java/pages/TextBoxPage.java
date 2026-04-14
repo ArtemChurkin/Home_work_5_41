@@ -68,23 +68,23 @@ public class TextBoxPage {
         return this;
     }
 }
-    // $("[id=output]".$("[id=name]").shouldHave(text(userName)) c $("[id=" + key + "]');
-        //public void checkField(String key, String value) {
-        //    $("[id=output] [id=" + key + "]").shouldHave(text(value));
+// $("[id=output]".$("[id=name]").shouldHave(text(userName)) c $("[id=" + key + "]');
+//public void checkField(String key, String value) {
+//    $("[id=output] [id=" + key + "]").shouldHave(text(value));
 
-    //public void checkUserName(String value) {
-    //    $("#output").$(byId("name")).shouldHave(text(value));
-    //}
-    //
-    //public void checkEmail(String value) {
-    //    $("#output").$(byId("email")).shouldHave(text(value));
-    //}
-    //
-    //public void checkCurrentAddress(String value) {
-    //    $("#output").$(byId("currentAddress")).shouldHave(text(value));
-    //}
-    //
-    //public void checkPermanentAddress(String value) {
-    //    $("#output").$(byId("permanentAddress")).shouldHave(text(value));
-    //}
+//public void checkUserName(String value) {
+//    $("#output").$(byId("name")).shouldHave(text(value));
+//}
+//
+//public void checkEmail(String value) {
+//    $("#output").$(byId("email")).shouldHave(text(value));
+//}
+//
+//public void checkCurrentAddress(String value) {
+//    $("#output").$(byId("currentAddress")).shouldHave(text(value));
+//}
+//
+//public void checkPermanentAddress(String value) {
+//    $("#output").$(byId("permanentAddress")).shouldHave(text(value));
+//}
 

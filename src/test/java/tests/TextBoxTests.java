@@ -27,8 +27,8 @@ public class TextBoxTests extends TestBase {
 
         textBoxPage.openPage()
 
-        .typeUserName(userName)
-        .typeUserEmail(userEmail)
+                .typeUserName(userName)
+                .typeUserEmail(userEmail)
                 .submitFormButton()
                 .checkField("name", userName)
                 .checkField("email", userEmail);
@@ -39,10 +39,10 @@ public class TextBoxTests extends TestBase {
 
         textBoxPage.openPage()
 
-        .typeUserName(userName)
-        .typeUserEmail(userErrorEmail)
-        .typeCurrentAddress(currentAddress)
-        .typePermanentAddress(permanentAddress)
+                .typeUserName(userName)
+                .typeUserEmail(userErrorEmail)
+                .typeCurrentAddress(currentAddress)
+                .typePermanentAddress(permanentAddress)
                 .submitFormButton()
                 .checkUserEmailHasErrorClass();
 

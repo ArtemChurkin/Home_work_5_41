@@ -36,67 +36,69 @@ public class AutomationPracticeFormPage {
     private SelenideElement closeButton = $("#closeLargeModal");
 
     // Actions
-    public AutomationPracticeFormPage openPage() {open("/automation-practice-form");
+    public AutomationPracticeFormPage openPage() {
+        open("/automation-practice-form");
 
         return this;
 
     }
 
-    public AutomationPracticeFormPage typeFirstName (String value){
+    public AutomationPracticeFormPage typeFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
-    public AutomationPracticeFormPage typeLastName(String value){
+
+    public AutomationPracticeFormPage typeLastName(String value) {
         lastNameInput.setValue(value);
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeUserEmail(String value){
+    public AutomationPracticeFormPage typeUserEmail(String value) {
         userEmailInput.setValue(value);
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeUserGender(String value){
+    public AutomationPracticeFormPage typeUserGender(String value) {
         userGenderRadioButton.$(byText(value)).click();
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeUserNumber (String value){
+    public AutomationPracticeFormPage typeUserNumber(String value) {
         userNumberInput.setValue(value);
 
         return this;
     }
 
-    public AutomationPracticeFormPage setBirthDay(String day, String month, String year){
+    public AutomationPracticeFormPage setBirthDay(String day, String month, String year) {
         dateOfBirthInput.click();
-        calendarComponent.setBirthDay( day, month, year);
+        calendarComponent.setBirthDay(day, month, year);
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeSubject (String value){
+    public AutomationPracticeFormPage typeSubject(String value) {
         userSubjectsInput.setValue(value).pressEnter();
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeHobbie (String value){
+    public AutomationPracticeFormPage typeHobbie(String value) {
         userHobbiesCheckBox.$(byText(value)).click();
 
         return this;
     }
 
-    public AutomationPracticeFormPage typePicture (String value){
+    public AutomationPracticeFormPage typePicture(String value) {
         userPictureUpload.uploadFromClasspath(value);
 
         return this;
     }
 
-    public AutomationPracticeFormPage typeCurrentAdress (String value){
+    public AutomationPracticeFormPage typeCurrentAddress(String value) {
         userCurrentAddressInput.setValue(value);
 
         return this;
@@ -138,19 +140,19 @@ public class AutomationPracticeFormPage {
         return this;
     }
 
-    public AutomationPracticeFormPage setCheckModalDialog (){
+    public AutomationPracticeFormPage setCheckModalDialog() {
         checkModalDialog.should(appear);
 
         return this;
     }
 
-    public AutomationPracticeFormPage setCheckTitle (String value){
+    public AutomationPracticeFormPage setCheckTitle(String value) {
         checkTitle.shouldHave(text(value));
 
         return this;
     }
 
-    public AutomationPracticeFormPage setCheckTable (String value){
+    public AutomationPracticeFormPage setCheckTable(String value) {
         fieldTable.shouldHave(text(value));
 
         return this;
@@ -168,20 +170,20 @@ public class AutomationPracticeFormPage {
         return this;
     }
 
-        public AutomationPracticeFormPage checkNumberErrorBorder() {
-            userNumberInput.shouldHave(cssValue(borderColor, red));
+    public AutomationPracticeFormPage checkNumberErrorBorder() {
+        userNumberInput.shouldHave(cssValue(borderColor, red));
 
-            return this;
+        return this;
     }
 
-    public AutomationPracticeFormPage checkFirstNameErrorIcon(){
+    public AutomationPracticeFormPage checkFirstNameErrorIcon() {
         firstNameInput.shouldHave(cssValue(backroundImage, errorIcon));
 
         return this;
 
     }
 
-    public AutomationPracticeFormPage checkEmailErrorIcon(){
+    public AutomationPracticeFormPage checkEmailErrorIcon() {
         userEmailInput.shouldHave(cssValue(backroundImage,
                 errorIcon));
 
@@ -189,7 +191,7 @@ public class AutomationPracticeFormPage {
 
     }
 
-    public AutomationPracticeFormPage checkNumberErrorIcon(){
+    public AutomationPracticeFormPage checkNumberErrorIcon() {
         userNumberInput.shouldHave(cssValue(backroundImage,
                 errorIcon));
 

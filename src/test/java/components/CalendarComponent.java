@@ -11,7 +11,7 @@ public class CalendarComponent {
     private String dayPickerLocator = ".react-datepicker__day.react-datepicker__day--0%s" +
             ":not(.react-datepicker__day--outside-month)";
 
-    public void setBirthDay(String day, String month, String year){
+    public void setBirthDay(String day, String month, String year) {
         yearPicker.selectOption(year);
         monthPicker.selectOption(month);
         String formattedDayLocator = String.format(dayPickerLocator, day);
