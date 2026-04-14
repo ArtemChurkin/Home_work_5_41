@@ -30,17 +30,18 @@ public class AutomationPracticeFormPage {
     private SelenideElement citySelectList = $("#city");
     private SelenideElement cityChoose = $("#react-select-4-input");
     private SelenideElement submitButton = $("#submit");
-    private SelenideElement checkModalDialog = $(".modal-dialog");
-    private SelenideElement checkTitle = $("#example-modal-sizes-title-lg");
-    private SelenideElement fieldTable = $(".table-responsive");
 
     private SelenideElement closeButton = $("#closeLargeModal");
 
     // Actions
     public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
-        executeJavaScript("document.querySelector('#fixedban')?.remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript("""
+                document.getElementById('fixedban')?.remove();
+                document.querySelector('footer')?.remove();
+                """);
+
+
 
         return this;
     }
