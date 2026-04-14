@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import components.CalendarComponent;
 import components.ResultTableComponent;
+import utils.JsSnippets;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -36,10 +37,7 @@ public class AutomationPracticeFormPage {
     // Actions
     public AutomationPracticeFormPage openPage() {
         open("/automation-practice-form");
-        executeJavaScript("""
-                document.getElementById('fixedban')?.remove();
-                document.querySelector('footer')?.remove();
-                """);
+        JsSnippets.removeAds();
 
 
 
